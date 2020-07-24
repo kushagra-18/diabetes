@@ -1,0 +1,221 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Predictor</title>
+
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+
+</head>
+
+<body>
+    
+   
+
+    <!-- As a heading -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Diabetes Predicton</a>
+            </div>
+        </div>
+    </nav>
+    <a href = "https://giantkillerkushagr.wixsite.com/website"><img src="{{url_for('static', filename='healthwayy.png')}}" alt="Logo" style="width:450px;height:110px;"/></a>
+
+    
+    <p style="text-align:center;"><font size = "6"> Predict the onset of diabetes based on diagnostic measures</font><br>
+        <font size = "5"> Please fill the information correctly</font>
+    
+    </p>
+
+    <br>
+
+
+    <div class="container">
+
+
+
+        <form action="\predict" method="post">
+
+           
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Age (in Years)</h5>
+                            <!-- HTP -->
+                            <input type="text" name="Age" id="Age" placeholder="Age" required="required">
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                <br>
+                
+                
+                
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Triceps skin fold thickness (mm)</h5>
+                            <!-- HTP -->
+                            <input type="text" name="SkinThick" id="SkinThick" placeholder = "Skin Thickness"required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+                <br>
+                <br>
+            
+            
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Plasma glucose concentration a 2 hours in an oral glucose tolerance test</h5>
+                            <!-- HTP -->
+                            <input type="text" name="Glucose" id="Glucose" placeholder = "Glucose"required="required">
+                        </div>
+                    </div>
+                </div>
+                
+                <br>
+                <br>
+                
+                
+                
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">2-Hour serum insulin (mu U/ml)</h5>
+                            <!-- HTP -->
+                            <input type="text" name="Insulin" id="Insulin" placeholder = "Insulin"required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+                <br>
+                <br>
+            
+            
+            
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Diabetes pedigree function</h5>
+                            <!-- HTP -->
+                            <input type="text" name="DPI" id="DPI" placeholder="DPF"  required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                
+                
+                
+                
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Diastolic blood pressure (mm Hg)</h5>
+                            <!-- HTP -->
+                            <input type="text" name="BP" id="BP" placeholder = "Blood Pressure"required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- HM1 -->
+                            <h5 class="card-title">Number of times pregnant</h5>
+                            <select name="Pregnancies" id="Pregnancies" required="required">
+                                <option value ="" selected disabled hidden>Pregnacies</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                        
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- HM2 -->
+                            <h5 class="card-title">Body mass index </h5>
+                            <!-- HTP -->
+                            <input type="text" name="BMI" id="BMI" placeholder = "BMI"required="required">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+          
+           
+            
+            
+        <br>
+            
+            
+    <!-- Submit -->
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+
+        <br>
+        <br>
+        <h3>{{ prediction_text }}</h3>
+
+        <br>
+        <br>
+        <p>©2020 Healthwayy</p>
+
+    </div>
+
+
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
